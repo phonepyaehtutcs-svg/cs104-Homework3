@@ -1,0 +1,47 @@
+
+try:
+    weight = float(input("Enter weight in Kg: "));
+except ValueError:
+    print("Please enter a valid weight.");
+    exit()
+
+if weight <= 0:
+    print("Please enter a valid weight");
+    exit()
+elif weight > 20:
+    print("Too Heavy (20kg MAX)")
+    exit()
+
+
+
+destination = str(input("Bangkok or other: ")).strip().lower();
+if destination not in ["bangkok","other"]:
+    print("Unknow Destination");
+    exit()
+
+express = str(input("YES or NO: " )).strip().lower();
+OUTSIDE_FEE = 30;
+
+
+
+
+if weight <= 1:
+    cost = 40;
+elif weight <=5:
+    cost = 80;
+elif weight <=20:
+    cost = 150;
+
+    
+if destination == "bangkok" and express == "yes":
+    total_cost = cost * 2;
+    print("Total cost is: ", total_cost, "baht");
+elif destination == "bangkok" and express == "no":
+    total_cost = cost;
+    print("Total cost is: ", total_cost, "baht");
+elif destination == "other" and express == "yes":
+    total_cost = (cost + OUTSIDE_FEE) * 2;
+    print("Total cost is: ", total_cost , "baht");
+elif destination == "other" and express == "no":
+    total_cost = cost + OUTSIDE_FEE;
+    print("Total cost is: ", total_cost,"baht");   
